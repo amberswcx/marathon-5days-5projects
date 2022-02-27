@@ -62,3 +62,42 @@ body {
 .done {
   background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
 }
+
+.hide {
+  display: none;
+}
+
+.drag {
+  background: rgba(247, 246, 247, 0.8);
+}
+
+.dropzone .placeholder {
+  position: relative;
+  border: 3px dashed rgb(210, 210, 210);
+  border-radius: 20px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.over {
+  filter: brightness(0.7);
+}
+
+.over::before,
+.over::after {
+  content: '';
+  position: absolute;
+  background: rgb(210, 210, 210);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.over::before {
+  width: 15px;
+  height: 3px;
+}
+
+.over::after {
+  width: 3px;
+  height: 15px;
+}
