@@ -10,6 +10,15 @@ sidebar.style.top = `-${(slidesCount - 1) * 100}vh`;
 downButton.addEventListener('click', () => changeSlide('down'));
 upButton.addEventListener('click', () => changeSlide('up'));
 
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown') {
+    changeSlide('down');
+  }
+  if (e.key === 'ArrowUp') {
+    changeSlide('up');
+  }
+});
+
 function changeSlide(direction) {
   const height = mainSlide.clientHeight;
 
