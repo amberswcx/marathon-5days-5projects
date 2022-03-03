@@ -6,6 +6,20 @@ const board = document.querySelector('.board');
 let time = 0;
 let score = 0;
 let intervalID;
+const COLORS = [
+  '#e32636',
+  '#a4c639',
+  '#fdee00',
+  '#007fff',
+  '#8a2be2',
+  '#c32148',
+  '#00cc99',
+  '#7fff00',
+  '#ffa700',
+  '#c154c1',
+  '#d70a53',
+  '#00bfff',
+];
 
 startButton.addEventListener('click', startGame);
 timeList.addEventListener('click', startGameWithTimer);
@@ -44,7 +58,7 @@ function decreaseTime() {
 }
 
 function finishGame() {
-  clearInterval(intervalID)
+  clearInterval(intervalID);
   timer.parentElement.innerHTML = ``;
   board.innerHTML = `<h2>Счет: ${score}</h2>`;
 }
@@ -64,6 +78,7 @@ function createRandomCircle() {
   circle.style.height = `${size}px`;
   circle.style.left = `${x}px`;
   circle.style.top = `${y}px`;
+  circle.style.background = COLORS[getRandomNumber(0, COLORS.length)];
   board.append(circle);
 }
 
