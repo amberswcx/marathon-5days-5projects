@@ -59,8 +59,12 @@ function decreaseTime() {
 
 function finishGame() {
   clearInterval(intervalID);
-  timer.parentElement.innerHTML = ``;
-  board.innerHTML = `<h2>Счет: ${score}</h2>`;
+  timer.parentElement.classList.add('hide');
+  board.innerHTML = `<h2>Счет: ${score} </h2>
+<a href="#" class="start">Начать новую игру</a>`;
+  board.style.flexDirection = 'column';
+  const restartLink = board.querySelector('.start');
+  restartLink.addEventListener('click', restart);
 }
 
 function setTime(time) {
@@ -92,4 +96,13 @@ function isCircle(e) {
     e.target.remove();
     createRandomCircle();
   }
+}
+
+function restart(e) {
+  e.preventDefault();
+  score = 0;
+  screens[1].classList.remove('up');
+  board.innerHTML = '';
+  board.style.flexDirection = 'row';
+  timer.parentElement.classList.remove('hide');
 }
